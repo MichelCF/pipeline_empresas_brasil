@@ -1,26 +1,39 @@
-INFO:2024-03-06 23:56:49,971:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-06 23:56:49,972:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:56:49,972:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:04,097:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-06 23:57:04,097:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:04,097:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:12,991:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-06 23:57:12,991:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:12,992:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:22,795:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-06 23:57:22,795:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:22,795:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:42,153:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-06 23:57:42,154:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:42,154:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:53,774:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-06 23:57:53,774:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:57:53,775:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-06 23:58:39,670:O arquivo Empresas1.zip demorou 19.868380308151245 segundos para ser baixado.
-INFO:2024-03-06 23:58:49,506:O arquivo Socios0.zip demorou 29.703922986984253 segundos para ser baixado.
-INFO:2024-03-06 23:59:03,150:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 00:00:04,826:O arquivo Empresas1.zip demorou 16.477636098861694 segundos para ser baixado.
-INFO:2024-03-07 00:00:10,421:O arquivo Socios0.zip demorou 22.072882890701294 segundos para ser baixado.
-INFO:2024-03-07 00:00:27,405:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 00:00:27,405:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-07 00:00:27,405:O arquivo EMPRE.parquet foi criado na camada Bronze.
+INFO:2024-03-07 00:34:05,867:O arquivo Empresas1.zip demorou 13.240833282470703 segundos para ser baixado.
+INFO:2024-03-07 00:34:11,194:O arquivo Socios0.zip demorou 18.567579746246338 segundos para ser baixado.
+INFO:2024-03-07 00:34:29,734:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 00:34:29,734:O arquivo SOCIO.parquet foi criado na camada Bronze.
+INFO:2024-03-07 00:34:29,734:O arquivo EMPRE.parquet foi criado na camada Bronze.
+INFO:2024-03-07 00:40:51,209:O arquivo Empresas1.zip demorou 20.80300784111023 segundos para ser baixado.
+INFO:2024-03-07 00:40:57,909:O arquivo Socios0.zip demorou 27.502588748931885 segundos para ser baixado.
+INFO:2024-03-07 00:52:15,884:O arquivo Empresas1.zip demorou 14.224116325378418 segundos para ser baixado.
+INFO:2024-03-07 00:52:20,319:O arquivo Socios0.zip demorou 18.658923864364624 segundos para ser baixado.
+INFO:2024-03-07 01:53:31,019:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 01:53:31,024:O arquivo SOCIO.csv foi criado na camada Bronze.
+INFO:2024-03-07 01:53:31,025:O arquivo SOCIO.parquet foi criado na camada Bronze.
+INFO:2024-03-07 01:55:04,519:O arquivo Socios0.zip demorou 23.396371364593506 segundos para ser baixado.
+INFO:2024-03-07 01:55:23,726:O arquivo Empresas0.zip demorou 42.60438776016235 segundos para ser baixado.
+INFO:2024-03-07 01:59:42,579:O arquivo Socios0.zip demorou 23.61146306991577 segundos para ser baixado.
+INFO:2024-03-07 02:00:01,752:O arquivo Empresas0.zip demorou 42.784305810928345 segundos para ser baixado.
+INFO:2024-03-07 10:45:51,414:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 10:48:53,975:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 10:48:53,975:O arquivo EMPRE.parquet foi criado na camada Bronze.
+INFO:2024-03-07 10:55:07,950:O arquivo Socios0.zip demorou 312.026784658432 segundos para ser baixado.
+INFO:2024-03-07 11:01:12,342:O arquivo Empresas0.zip demorou 676.4197382926941 segundos para ser baixado.
+INFO:2024-03-07 11:02:29,960:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 11:02:33,443:O arquivo SOCIO.parquet foi criado na camada Bronze.
+INFO:2024-03-07 11:02:33,444:O arquivo EMPRE.parquet foi criado na camada Bronze.
+INFO:2024-03-07 11:35:37,365:O arquivo Socios0.zip demorou 128.06594562530518 segundos para ser baixado.
+INFO:2024-03-07 11:37:58,036:O arquivo Empresas0.zip demorou 268.7375898361206 segundos para ser baixado.
+INFO:2024-03-07 11:39:42,463:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 11:39:42,463:O arquivo SOCIO.parquet foi criado na camada Bronze.
+INFO:2024-03-07 11:39:42,464:O arquivo EMPRE.parquet foi criado na camada Bronze.
+INFO:2024-03-07 12:19:32,510:O arquivo Socios0.zip demorou 52.11710166931152 segundos para ser baixado.
+INFO:2024-03-07 12:20:26,295:O arquivo Empresas0.zip demorou 105.90247678756714 segundos para ser baixado.
+INFO:2024-03-07 12:21:59,905:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 12:21:59,906:O arquivo SOCIO.parquet foi criado na camada Bronze.
+INFO:2024-03-07 12:21:59,906:O arquivo EMPRE.parquet foi criado na camada Bronze.
+INFO:2024-03-07 12:57:27,123:O arquivo Socios0.zip demorou 48.40461850166321 segundos para ser baixado.
+INFO:2024-03-07 12:58:13,340:O arquivo Empresas0.zip demorou 94.62280774116516 segundos para ser baixado.
+INFO:2024-03-07 12:59:25,452:O arquivo INGESTION foi criado na camada Bronze.
+INFO:2024-03-07 12:59:25,461:O arquivo SOCIO.parquet foi criado na camada Bronze.
+INFO:2024-03-07 12:59:25,461:O arquivo EMPRE.parquet foi criado na camada Bronze.

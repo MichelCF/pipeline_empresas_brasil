@@ -1,8 +1,12 @@
-import wget, os
+import os
 from zipfile import ZipFile
-import pyarrow.csv as pv
-import pyarrow.parquet as pq
+
 import logs_decorator as logs
+import pyarrow as pa
+import pyarrow.parquet as pq
+import pyarrow.csv as pv
+import pandas as pd
+import wget
 
 URL = "https://dadosabertos.rfb.gov.br/CNPJ/"
 EMPRESAS = "Empresas1.zip"
@@ -24,7 +28,6 @@ def downlod_file(filename: str, url: str, output: str) -> bool:
         return False
 
 
-# Etapa 2
 def unzip_file(filename: str, path: str, output: str) -> bool:
     try:
         with ZipFile(path + filename, "r") as zObject:
@@ -35,25 +38,42 @@ def unzip_file(filename: str, path: str, output: str) -> bool:
         return False
 
 
-# ETAPA 3
 def remove_all_files(path: str, extension: str):
     for file in os.listdir(path):
         if file.endswith(extension):
             os.remove(os.path.join(path, file))
 
 
-@logs.csv_to_parquet
-def csv_to_parquet(path: str, output: str):
-    options = pv.ParseOptions(delimiter=";")
-
+def rename_unzip_files(path: str):
     for file in os.listdir(path):
         if file.endswith("CSV"):
             new_file = file.split(".")[-1].replace("CSV", ".csv")
             os.rename(os.path.join(path, file), os.path.join(path, new_file))
     print(os.listdir(path))
+
+
+@logs.csv_to_parquet
+def csv_to_parquet(path: str, output: str):
+    rename_unzip_files(path)
     for file in os.listdir(path):
         print(file)
         if file.endswith(".csv"):
-            table = pv.read_csv(os.path.join(path, file), parse_options=options)
-            pq.write_table(table, os.path.join(output, file.replace("csv", "parquet")))
+            df_stream = pd.read_csv(
+                os.path.join(path, file),
+                sep=";",
+                encoding="ISO-8859-1",
+                low_memory=False,
+                chunksize=100000,
+            )
+            for i, chunk in enumerate(df_stream):
+                if i == 0:
+                    parquet_schema = pa.Table.from_pandas(df=chunk).schema
+                    parquet_writer = pq.ParquetWriter(
+                        os.path.join(output, file.replace("csv", "parquet")),
+                        parquet_schema,
+                        compression="snappy",
+                    )
+
+                table = pa.Table.from_pandas(chunk, schema=parquet_schema)
+                parquet_writer.write_table(table)
     return os.listdir(output)

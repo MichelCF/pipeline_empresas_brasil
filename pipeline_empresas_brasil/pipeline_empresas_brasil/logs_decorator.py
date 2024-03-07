@@ -1,6 +1,6 @@
-from functools import wraps
-import time
 import logging
+import time
+from functools import wraps
 
 logging.basicConfig(
     level=logging.INFO,

@@ -7,13 +7,18 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+isort = "^5.13.2"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--doctest-modules"
+
 [tool.taskipy.tasks]
 
-run = "python pipeline_empresas_brasil/src/main.py"
-lint = "black ."
+run = "python pipeline_empresas_brasil/main.py"
+lint = "black . && isort"
