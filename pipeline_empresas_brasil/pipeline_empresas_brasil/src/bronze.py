@@ -45,16 +45,15 @@ def remove_all_files(path: str, extension: str):
 @logs.csv_to_parquet
 def csv_to_parquet(path: str, output: str):
     options = pv.ParseOptions(delimiter=";")
-    
+
     for file in os.listdir(path):
         if file.endswith("CSV"):
             new_file = file.split(".")[-1].replace("CSV", ".csv")
             os.rename(os.path.join(path, file), os.path.join(path, new_file))
-            
+    print(os.listdir(path))
     for file in os.listdir(path):
+        print(file)
         if file.endswith(".csv"):
             table = pv.read_csv(os.path.join(path, file), parse_options=options)
-            pq.write_table(
-                table, os.path.join(output, file.replace("csv", "parquet"))
-            )
+            pq.write_table(table, os.path.join(output, file.replace("csv", "parquet")))
     return os.listdir(output)

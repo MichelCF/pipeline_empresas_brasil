@@ -7,8 +7,8 @@ URL = "https://dadosabertos.rfb.gov.br/CNPJ/"
 EMPRESAS = "Empresas1.zip"
 SOCIOS = "Socios0.zip"
 FILES = [EMPRESAS, SOCIOS]
-BRONZE = "pipeline_empresas_brasil/camadas/BRONZE/"
-INGESTION = "pipeline_empresas_brasil/camadas/BRONZE/INGESTION/"
+BRONZE = "camadas/BRONZE/"
+INGESTION = "camadas/BRONZE/INGESTION/"
 
 downlod_multi_files = partial(bronze.downlod_file, url=URL, output=INGESTION)
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:

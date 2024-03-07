@@ -4,7 +4,7 @@ import logging
 
 logging.basicConfig(
     level=logging.INFO,
-    filename="pipeline_empresas_brasil/logs/logs.txt",
+    filename="logs/logs.txt",
     filemode="a",
     encoding="utf-8",
     format="%(levelname)s:%(asctime)s:%(message)s",
