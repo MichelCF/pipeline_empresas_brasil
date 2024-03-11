@@ -31,9 +31,13 @@ def tempo_execucao(func):
 def csv_to_parquet(func):
     @wraps(func)
     def wrap_csv_to_parquet(*args, **kwargs):
+        inicio = time.time()
         resultado = func(*args, **kwargs)
+        fim = time.time()
         for file in resultado:
-            logging.info(f"O arquivo {file} foi criado na camada Bronze.")
+            logging.info(
+                f"O arquivo {args[0]} demorou {fim-inicio} para ser convertido em parquet na camada Bronze."
+            )
         return resultado
 
     return wrap_csv_to_parquet

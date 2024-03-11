@@ -32,6 +32,7 @@ def unzip_file(filename: str, path: str, output: str) -> bool:
     try:
         with ZipFile(path + filename, "r") as zObject:
             zObject.extractall(path=output)
+        rename_unzip_file(output)
         return True
     except Exception as error:
         print(f"Ocorreu um erro {error}")
@@ -44,7 +45,7 @@ def remove_all_files(path: str, extension: str):
             os.remove(os.path.join(path, file))
 
 
-def rename_unzip_files(path: str):
+def rename_unzip_file(path: str):
     for file in os.listdir(path):
         if file.endswith("CSV"):
             new_file = file.split(".")[-1].replace("CSV", ".csv")
@@ -53,27 +54,23 @@ def rename_unzip_files(path: str):
 
 
 @logs.csv_to_parquet
-def csv_to_parquet(path: str, output: str):
-    rename_unzip_files(path)
-    for file in os.listdir(path):
-        print(file)
-        if file.endswith(".csv"):
-            df_stream = pd.read_csv(
-                os.path.join(path, file),
-                sep=";",
-                encoding="ISO-8859-1",
-                low_memory=False,
-                chunksize=100000,
+def csv_to_parquet(file_with_schema: tuple, path: str, output: str):
+    file = file_with_schema[0]
+    schema = file_with_schema[1]
+    df_stream = pd.read_csv(
+        os.path.join(path, file),
+        sep=";",
+        encoding="ISO-8859-1",
+        low_memory=False,
+        chunksize=100000,
+    )
+    for i, chunk in enumerate(df_stream):
+        if i == 0:
+            parquet_writer = pq.ParquetWriter(
+                os.path.join(output, file.replace("csv", "parquet")),
+                schema,
+                compression="snappy",
             )
-            for i, chunk in enumerate(df_stream):
-                if i == 0:
-                    parquet_schema = pa.Table.from_pandas(df=chunk).schema
-                    parquet_writer = pq.ParquetWriter(
-                        os.path.join(output, file.replace("csv", "parquet")),
-                        parquet_schema,
-                        compression="snappy",
-                    )
-
-                table = pa.Table.from_pandas(chunk, schema=parquet_schema)
-                parquet_writer.write_table(table)
+        table = pa.Table.from_pandas(chunk, schema=schema)
+        parquet_writer.write_table(table)
     return os.listdir(output)

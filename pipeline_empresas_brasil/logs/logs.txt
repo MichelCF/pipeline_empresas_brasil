@@ -1,39 +1,47 @@
-INFO:2024-03-07 00:34:05,867:O arquivo Empresas1.zip demorou 13.240833282470703 segundos para ser baixado.
-INFO:2024-03-07 00:34:11,194:O arquivo Socios0.zip demorou 18.567579746246338 segundos para ser baixado.
-INFO:2024-03-07 00:34:29,734:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 00:34:29,734:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-07 00:34:29,734:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-07 00:40:51,209:O arquivo Empresas1.zip demorou 20.80300784111023 segundos para ser baixado.
-INFO:2024-03-07 00:40:57,909:O arquivo Socios0.zip demorou 27.502588748931885 segundos para ser baixado.
-INFO:2024-03-07 00:52:15,884:O arquivo Empresas1.zip demorou 14.224116325378418 segundos para ser baixado.
-INFO:2024-03-07 00:52:20,319:O arquivo Socios0.zip demorou 18.658923864364624 segundos para ser baixado.
-INFO:2024-03-07 01:53:31,019:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 01:53:31,024:O arquivo SOCIO.csv foi criado na camada Bronze.
-INFO:2024-03-07 01:53:31,025:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-07 01:55:04,519:O arquivo Socios0.zip demorou 23.396371364593506 segundos para ser baixado.
-INFO:2024-03-07 01:55:23,726:O arquivo Empresas0.zip demorou 42.60438776016235 segundos para ser baixado.
-INFO:2024-03-07 01:59:42,579:O arquivo Socios0.zip demorou 23.61146306991577 segundos para ser baixado.
-INFO:2024-03-07 02:00:01,752:O arquivo Empresas0.zip demorou 42.784305810928345 segundos para ser baixado.
-INFO:2024-03-07 10:45:51,414:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 10:48:53,975:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 10:48:53,975:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-07 10:55:07,950:O arquivo Socios0.zip demorou 312.026784658432 segundos para ser baixado.
-INFO:2024-03-07 11:01:12,342:O arquivo Empresas0.zip demorou 676.4197382926941 segundos para ser baixado.
-INFO:2024-03-07 11:02:29,960:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 11:02:33,443:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-07 11:02:33,444:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-07 11:35:37,365:O arquivo Socios0.zip demorou 128.06594562530518 segundos para ser baixado.
-INFO:2024-03-07 11:37:58,036:O arquivo Empresas0.zip demorou 268.7375898361206 segundos para ser baixado.
-INFO:2024-03-07 11:39:42,463:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 11:39:42,463:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-07 11:39:42,464:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-07 12:19:32,510:O arquivo Socios0.zip demorou 52.11710166931152 segundos para ser baixado.
-INFO:2024-03-07 12:20:26,295:O arquivo Empresas0.zip demorou 105.90247678756714 segundos para ser baixado.
-INFO:2024-03-07 12:21:59,905:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 12:21:59,906:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-07 12:21:59,906:O arquivo EMPRE.parquet foi criado na camada Bronze.
-INFO:2024-03-07 12:57:27,123:O arquivo Socios0.zip demorou 48.40461850166321 segundos para ser baixado.
-INFO:2024-03-07 12:58:13,340:O arquivo Empresas0.zip demorou 94.62280774116516 segundos para ser baixado.
-INFO:2024-03-07 12:59:25,452:O arquivo INGESTION foi criado na camada Bronze.
-INFO:2024-03-07 12:59:25,461:O arquivo SOCIO.parquet foi criado na camada Bronze.
-INFO:2024-03-07 12:59:25,461:O arquivo EMPRE.parquet foi criado na camada Bronze.
+INFO:2024-03-10 21:15:23,147:O arquivo Socios0.zip demorou 864.1266460418701 segundos para ser baixado.
+INFO:2024-03-10 21:19:04,257:O arquivo Empresas0.zip demorou 1085.2367765903473 segundos para ser baixado.
+INFO:2024-03-10 21:19:26,274:O arquivo K3241.K03200Y0.D40210.EMPRECSV demorou 21.948198318481445 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:19:26,274:O arquivo K3241.K03200Y0.D40210.EMPRECSV demorou 21.948198318481445 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:19:26,275:O arquivo K3241.K03200Y0.D40210.EMPRECSV demorou 21.948198318481445 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:19:30,578:O arquivo Socios0.zip demorou 26.25700807571411 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:19:30,579:O arquivo Socios0.zip demorou 26.25700807571411 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:19:30,579:O arquivo Socios0.zip demorou 26.25700807571411 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:19:30,579:O arquivo Socios0.zip demorou 26.25700807571411 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:20:11,838:O arquivo Empresas0.zip demorou 45.563024282455444 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:20:11,839:O arquivo Empresas0.zip demorou 45.563024282455444 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:20:11,839:O arquivo Empresas0.zip demorou 45.563024282455444 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-10 21:20:11,839:O arquivo Empresas0.zip demorou 45.563024282455444 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:21:37,561:O arquivo Socios0.zip demorou 34.36707520484924 segundos para ser baixado.
+INFO:2024-03-11 00:22:07,849:O arquivo Empresas0.zip demorou 64.65549111366272 segundos para ser baixado.
+INFO:2024-03-11 00:23:44,209:O arquivo SOCIO.csv demorou 96.16002631187439 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:23:44,211:O arquivo SOCIO.csv demorou 96.16002631187439 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:23:44,211:O arquivo SOCIO.csv demorou 96.16002631187439 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:23:44,214:O arquivo SOCIO.csv demorou 96.16002631187439 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:23:44,214:O arquivo SOCIO.csv demorou 96.16002631187439 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:23:44,214:O arquivo SOCIO.csv demorou 96.16002631187439 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:24:04,011:O arquivo EMPRE.csv demorou 115.84080815315247 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:24:04,012:O arquivo EMPRE.csv demorou 115.84080815315247 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:24:04,012:O arquivo EMPRE.csv demorou 115.84080815315247 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:24:04,012:O arquivo EMPRE.csv demorou 115.84080815315247 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:24:04,012:O arquivo EMPRE.csv demorou 115.84080815315247 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:24:04,012:O arquivo EMPRE.csv demorou 115.84080815315247 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:32:26,105:O arquivo Socios0.zip demorou 31.747273921966553 segundos para ser baixado.
+INFO:2024-03-11 00:32:54,410:O arquivo Empresas0.zip demorou 60.05288028717041 segundos para ser baixado.
+INFO:2024-03-11 00:35:44,738:O arquivo Socios0.zip demorou 38.76426839828491 segundos para ser baixado.
+INFO:2024-03-11 00:36:11,212:O arquivo Empresas0.zip demorou 65.2388961315155 segundos para ser baixado.
+INFO:2024-03-11 00:37:13,104:O arquivo SOCIO.csv demorou 61.71470284461975 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:37:13,104:O arquivo SOCIO.csv demorou 61.71470284461975 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:37:13,104:O arquivo SOCIO.csv demorou 61.71470284461975 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:37:43,074:O arquivo EMPRE.csv demorou 91.68294262886047 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:37:43,074:O arquivo EMPRE.csv demorou 91.68294262886047 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:37:43,074:O arquivo EMPRE.csv demorou 91.68294262886047 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:38:17,529:O arquivo SOCIO.csv demorou 34.42041563987732 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:38:17,529:O arquivo SOCIO.csv demorou 34.42041563987732 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:38:17,529:O arquivo SOCIO.csv demorou 34.42041563987732 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:38:36,367:O arquivo EMPRE.csv demorou 53.253894090652466 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:38:36,369:O arquivo EMPRE.csv demorou 53.253894090652466 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 00:38:36,369:O arquivo EMPRE.csv demorou 53.253894090652466 para ser convertido em parquet na camada Bronze.
+INFO:2024-03-11 01:14:32,290:O arquivo Socios0.zip demorou 206.8046317100525 segundos para ser baixado.
+INFO:2024-03-11 01:20:05,288:O arquivo Empresas0.zip demorou 539.8036034107208 segundos para ser baixado.
+INFO:2024-03-11 01:56:19,694:O arquivo Socios0.zip demorou 24.6409854888916 segundos para ser baixado.
+INFO:2024-03-11 01:56:35,243:O arquivo Empresas0.zip demorou 40.190515995025635 segundos para ser baixado.
