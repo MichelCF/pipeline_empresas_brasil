@@ -12,8 +12,6 @@ URL = "https://dadosabertos.rfb.gov.br/CNPJ/"
 EMPRESAS = "Empresas1.zip"
 SOCIOS = "Socios0.zip"
 FILES = [EMPRESAS, SOCIOS]
-BRONZE = "/home/caiafa/pipeline_empresas_brasil/BRONZE/"
-INGESTION = "/home/caiafa/pipeline_empresas_brasil/BRONZE/INGESTION/"
 
 
 @logs.tempo_execucao

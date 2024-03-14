@@ -45,3 +45,9 @@ INFO:2024-03-11 01:14:32,290:O arquivo Socios0.zip demorou 206.8046317100525 seg
 INFO:2024-03-11 01:20:05,288:O arquivo Empresas0.zip demorou 539.8036034107208 segundos para ser baixado.
 INFO:2024-03-11 01:56:19,694:O arquivo Socios0.zip demorou 24.6409854888916 segundos para ser baixado.
 INFO:2024-03-11 01:56:35,243:O arquivo Empresas0.zip demorou 40.190515995025635 segundos para ser baixado.
+INFO:2024-03-13 23:22:24,128:O arquivo Socios0.zip não concluiu o download
+INFO:2024-03-13 23:22:24,128:O arquivo Empresas0.zip não concluiu o download
+INFO:2024-03-13 23:37:50,082:O arquivo Socios0.zip demorou 29.31966519355774 segundos para ser baixado.
+INFO:2024-03-13 23:39:07,970:O arquivo Empresas0.zip demorou 107.2081549167633 segundos para ser baixado.
+INFO:2024-03-13 23:40:55,542:O arquivo Socios0.zip demorou 22.623872756958008 segundos para ser baixado.
+INFO:2024-03-13 23:41:11,229:O arquivo Empresas0.zip demorou 38.31080770492554 segundos para ser baixado.

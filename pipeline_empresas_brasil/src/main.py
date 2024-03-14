@@ -8,8 +8,8 @@ URL = "https://dadosabertos.rfb.gov.br/CNPJ/"
 EMPRESAS = "Empresas0.zip"
 SOCIOS = "Socios0.zip"
 
-BRONZE = "camadas/BRONZE/"
-INGESTION = "camadas/BRONZE/INGESTION/"
+BRONZE = "camadas/bronze/"
+INGESTION = "camadas/bronze/ingestion/"
 
 SCHEMA_EMPRESAS = {
     "cnpj": str,

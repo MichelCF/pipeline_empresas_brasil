@@ -4,7 +4,7 @@ from functools import wraps
 
 logging.basicConfig(
     level=logging.INFO,
-    filename="logs/logs.txt",
+    filename="./logs/logs.txt",
     filemode="a",
     encoding="utf-8",
     format="%(levelname)s:%(asctime)s:%(message)s",
