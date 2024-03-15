@@ -1,12 +1,10 @@
 import os
 from zipfile import ZipFile
 
-import logs_decorator as logs
-import pyarrow as pa
-import pyarrow.parquet as pq
-import pyarrow.csv as pv
 import pandas as pd
 import wget
+
+import logs_decorator as logs
 
 URL = "https://dadosabertos.rfb.gov.br/CNPJ/"
 EMPRESAS = "Empresas1.zip"
@@ -30,7 +28,6 @@ def unzip_file(filename: str, path: str, output: str) -> bool:
     try:
         with ZipFile(path + filename, "r") as zObject:
             zObject.extractall(path=output)
-        rename_unzip_file(output)
         return True
     except Exception as error:
         print(f"Ocorreu um erro {error}")
@@ -43,32 +40,30 @@ def remove_all_files(path: str, extension: str):
             os.remove(os.path.join(path, file))
 
 
-def rename_unzip_file(path: str):
-    for file in os.listdir(path):
-        if file.endswith("CSV"):
-            new_file = file.split(".")[-1].replace("CSV", ".csv")
-            os.rename(os.path.join(path, file), os.path.join(path, new_file))
-    print(os.listdir(path))
+def ingestion_to_csv(input_path: str, output_path: str, metadata: dict, end_file: str):
+    for file in os.listdir(input_path):
+        if file.endswith(end_file):
+            df = pd.read_csv(
+                input_path + metadata["arquivo"],
+                encoding=metadata["encoding"],
+                sep=metadata["sep"],
+                names=metadata["colunas"],
+                dtype=metadata["dtype"],
+            )
+            df.to_csv(
+                output_path + file.split(".")[-1].replace("CSV", ".csv"),
+                encoding="utf-8",
+                sep=";",
+                index=False,
+            )
 
 
 @logs.csv_to_parquet
-def csv_to_parquet(file_with_schema: tuple, path: str, output: str):
-    file = file_with_schema[0]
-    schema = file_with_schema[1]
-    df_stream = pd.read_csv(
-        os.path.join(path, file),
-        sep=";",
-        encoding="ISO-8859-1",
-        low_memory=False,
-        chunksize=100000,
+def csv_to_parquet(file: str, path: str, output: str):
+    df = pd.read_csv(os.path.join(path, file), sep=";")
+    df.to_parquet(
+        (os.path.join(output, file.replace(".csv", ".parquet"))),
+        index=False,
+        engine="pyarrow",
     )
-    for i, chunk in enumerate(df_stream):
-        if i == 0:
-            parquet_writer = pq.ParquetWriter(
-                os.path.join(output, file.replace("csv", "parquet")),
-                schema,
-                compression="snappy",
-            )
-        table = pa.Table.from_pandas(chunk, schema=schema)
-        parquet_writer.write_table(table)
-    return os.listdir(output)
+    # return os.listdir(output)

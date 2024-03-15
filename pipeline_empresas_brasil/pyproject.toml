@@ -13,6 +13,9 @@ pyarrow = "^15.0.1"
 pandas = "^2.2.1"
 wget = "^3.2"
 taskipy = "^1.12.2"
+pyspark = "^3.5.1"
+python-dotenv = "^1.0.1"
+sqlalchemy = "^2.0.28"
 
 
 [build-system]
@@ -26,4 +29,7 @@ addopts = "--doctest-modules"
 [tool.taskipy.tasks]
 
 run = "python src/main.py"
-lint = "black . && isort"
+run_silver = "python src/silver.py"
+run_gold = "python src/gold.py"
+run_teste = "python src/teste.py"
+lint = "black . && isort ."
