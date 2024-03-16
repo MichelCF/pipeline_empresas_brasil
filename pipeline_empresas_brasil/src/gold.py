@@ -1,34 +1,37 @@
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
-from pyspark.sql.types import FloatType, IntegerType, StringType
+import pandas as pd
 
 
-def silver_to_gold(
-    path_empresas: str, path_socios: str, output: str, secao: SparkSession
-):
-    df_empresas = (
-        secao.read.format("parquet").option("header", "true").load(EMPRESA_SILVER)
-    )
-    df_socios = (
-        secao.read.format("parquet").option("header", "true").load(SOCIAL_SILVER)
-    )
-    left_df = df_empresas.join(df_socios, on=["cnpj"], how="left").orderBy("cnpj")
-    df_qtd_socios = left_df.groupBy("cnpj").agg(
-        count("documento_socio").alias("qtde_socios")
+def silver_to_gold(file_empresa: str, file_socios: str, output: str):
+    # Carregando os DataFrames de empresas e sócios
+    df_empresas = pd.read_parquet(file_empresa)
+    df_socios = pd.read_parquet(file_socios)
+
+    # Juntando os DataFrames de empresas e sócios
+    merged_df = pd.merge(df_empresas, df_socios, on="cnpj", how="left").sort_values(
+        "cnpj"
     )
 
-    left_df = left_df.join(df_qtd_socios, on=["cnpj"], how="left").orderBy("cnpj")
-    left_df = (
-        left_df.select("cnpj", "qtde_socios", "tipo_socio", "cod_porte")
-        .withColumn(
+    # Calculando a quantidade de sócios por CNPJ
+    qtde_socios = merged_df.groupby("cnpj").size().reset_index(name="qtde_socios")
+
+    # Juntando a quantidade de sócios com o DataFrame principal
+    merged_df = pd.merge(merged_df, qtde_socios, on="cnpj", how="left").sort_values(
+        "cnpj"
+    )
+
+    # Criando as colunas "flag_socio_estrangeiro" e "doc_alvo"
+    merged_df["flag_socio_estrangeiro"] = merged_df["tipo_socio"] == 3
+    merged_df["doc_alvo"] = (merged_df["cod_porte"] == 3) & (
+        merged_df["qtde_socios"] > 1
+    )
+
+    # Selecionando e escrevendo o DataFrame resultante em um arquivo Parquet
+    final_df = merged_df[
+        [
+            "cnpj",
+            "qtde_socios",
             "flag_socio_estrangeiro",
-            (when(col("tipo_socio") == 3, True).otherwise(False)),
-        )
-        .withColumn(
             "doc_alvo",
-            when((col("cod_porte") == 3) & (col("qtde_socios") > 1), True).otherwise(
-                False
-            ),
-        )
-    )
-    left_df.write.mode("overwrite").parquet(output)
+        ]
+    ]
+    final_df.to_parquet(output)

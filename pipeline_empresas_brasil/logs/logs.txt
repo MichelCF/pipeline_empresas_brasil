@@ -117,3 +117,11 @@ py4j.protocol.Py4JNetworkError: Error while sending
 INFO:2024-03-15 15:54:10,292:Closing down clientserver connection
 INFO:2024-03-15 15:57:26,545:Closing down clientserver connection
 INFO:2024-03-15 16:29:14,651:Closing down clientserver connection
+INFO:2024-03-15 18:23:00,575:O arquivo Socios0.zip demorou 29.229668140411377 segundos para ser baixado.
+INFO:2024-03-15 18:23:22,062:O arquivo Empresas0.zip demorou 50.71725392341614 segundos para ser baixado.
+INFO:2024-03-15 18:29:30,213:O arquivo Socios0.zip demorou 22.871975421905518 segundos para ser baixado.
+INFO:2024-03-15 18:29:45,733:O arquivo Empresas0.zip demorou 38.39723825454712 segundos para ser baixado.
+INFO:2024-03-15 21:56:36,206:O arquivo Socios0.zip demorou 23.17873764038086 segundos para ser baixado.
+INFO:2024-03-15 21:56:51,902:O arquivo Empresas0.zip demorou 38.87539005279541 segundos para ser baixado.
+INFO:2024-03-16 00:34:08,514:O arquivo Socios0.zip demorou 23.07539391517639 segundos para ser baixado.
+INFO:2024-03-16 00:34:23,796:O arquivo Empresas0.zip demorou 38.35795736312866 segundos para ser baixado.

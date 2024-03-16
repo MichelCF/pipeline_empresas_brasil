@@ -16,6 +16,7 @@ taskipy = "^1.12.2"
 pyspark = "^3.5.1"
 python-dotenv = "^1.0.1"
 sqlalchemy = "^2.0.28"
+psycopg2-binary = "^2.9.9"
 
 
 [build-system]

@@ -2,19 +2,16 @@ import concurrent.futures
 import os
 from functools import partial
 
-from dotenv import load_dotenv
-from pyspark.sql import SparkSession
-from sqlalchemy import create_engine
-
 import bronze
 import gold
 import silver
+import teste
 
 URL = "https://dadosabertos.rfb.gov.br/CNPJ/"
 
 BRONZE = "camadas/bronze/"
 INGESTION = "camadas/bronze/ingestion/"
-SOCIAL_SILVER = "camadas/silver/social/"
+SOCIOS_SILVER = "camadas/silver/socios/"
 EMPRESA_SILVER = "camadas/silver/empresa/"
 EMPRESA_GOLD = "camadas/gold/empresa/"
 
@@ -75,23 +72,6 @@ SOCIOS_METADATA = {
 }
 METADATAS = [EMPRESA_METADATA, SOCIOS_METADATA]
 
-spark = (
-    SparkSession.builder.master("local")
-    .appName("pipeline_empresas_brasil")
-    .getOrCreate()
-)
-#load_dotenv()
-#db_string = "postgresql://{}:{}@{}:{}/{}".format(
-#    os.getenv("DB_USER"),
-#    os.getenv("DB_PASS"),
-#    os.getenv("DB_HOST"),
-#    os.getenv("DB_PORT"),
-#    os.getenv("DB_NAME"),
-#)
-#print(db_string)
-#db = create_engine(db_string)
-#print(db)
-
 downlod_multi_files = partial(bronze.downlod_file, url=URL, output=INGESTION)
 unzipall_files = partial(bronze.unzip_file, path=INGESTION, output=INGESTION)
 all_csv_to_parquet = partial(bronze.csv_to_parquet, path=BRONZE, output=BRONZE)
@@ -99,10 +79,8 @@ all_csv_to_parquet = partial(bronze.csv_to_parquet, path=BRONZE, output=BRONZE)
 files = [METADATAS[0]["arquivo"], METADATAS[1]["arquivo"]]
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as thread_executor:
     downalod_files = thread_executor.map(downlod_multi_files, files)
-
 for file in files:
     unzipall_files(file)
-
 bronze.ingestion_to_csv(
     input_path=INGESTION,
     output_path=BRONZE,
@@ -115,17 +93,15 @@ bronze.ingestion_to_csv(
     metadata=SOCIOS_METADATA,
     end_file="SOCIOCSV",
 )
-
 files = list(filter(lambda files: files.endswith(".csv") == True, os.listdir(BRONZE)))
 with concurrent.futures.ProcessPoolExecutor(max_workers=4) as process_executor:
     parquet_files = process_executor.map(all_csv_to_parquet, files)
 bronze.remove_all_files(INGESTION, "CSV")
-silver.social_bronze_to_silver("SOCIO.parquet", BRONZE, SOCIAL_SILVER, secao=spark)
-silver.empresas_bronze_to_silver("EMPRE.parquet", BRONZE, EMPRESA_SILVER, secao=spark)
+silver.social_bronze_to_silver("SOCIO.parquet", BRONZE, SOCIOS_SILVER)
+silver.empresas_bronze_to_silver("EMPRE.parquet", BRONZE, EMPRESA_SILVER)
 gold.silver_to_gold(
-    path_socios=SOCIAL_SILVER,
-    path_empresas=EMPRESA_SILVER,
-    output=EMPRESA_GOLD,
-    secao=spark,
+    SOCIOS_SILVER + "SOCIO.parquet",
+    EMPRESA_SILVER + "EMPRE.parquet",
+    EMPRESA_GOLD + "EMPRESA.parquet",
 )
-spark.stop()
+teste.gold_to_bd()
