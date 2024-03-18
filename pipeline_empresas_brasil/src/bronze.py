@@ -2,7 +2,6 @@ import os
 from zipfile import ZipFile
 
 import pandas as pd
-import wget
 
 import logs_decorator as logs
 
@@ -66,4 +65,3 @@ def csv_to_parquet(file: str, path: str, output: str):
         index=False,
         engine="pyarrow",
     )
-    # return os.listdir(output)

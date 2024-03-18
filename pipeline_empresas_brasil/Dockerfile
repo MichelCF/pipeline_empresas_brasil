@@ -16,7 +16,9 @@ RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --n
 FROM python:3.11-slim-buster as runtime
 
 ENV VIRTUAL_ENV=/app/.venv \
-    PATH="/app/.venv/bin:$PATH" 
+    PATH="/app/.venv/bin:$PATH"
+
+RUN echo $PATH
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
@@ -24,4 +26,4 @@ WORKDIR /app
 
 COPY . ./
 
-ENTRYPOINT ["task", "run"]
+CMD [ "task", "run" ]
