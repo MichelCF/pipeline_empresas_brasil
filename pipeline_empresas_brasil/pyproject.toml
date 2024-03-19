@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "pipeline-empresas-brasil"
+version = "0.1.0"
+description = ""
+authors = ["Michel Caiafa <michel.caiafa@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+isort = "^5.13.2"
+black = "^24.2.0"
+pyarrow = "^15.0.1"
+pandas = "^2.2.1"
+wget = "^3.2"
+taskipy = "^1.12.2"
+sqlalchemy = "^2.0.28"
+psycopg2-binary = "^2.9.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--doctest-modules"
+
+[tool.taskipy.tasks]
+
+run = "python src/main.py"
+lint = "black . && isort ."
