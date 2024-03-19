@@ -2,6 +2,7 @@ import os
 from zipfile import ZipFile
 
 import pandas as pd
+import wget
 
 import logs_decorator as logs
 
@@ -16,7 +17,7 @@ def downlod_file(filename: str, url: str, output: str) -> bool:
 
     try:
         wget.download(url + filename, out=output)
-        print(f"O Download do aqruivo {filename} foi concluido.")
+        print(f"O Download do arquivo {filename} foi concluido.")
         return True
     except Exception as error:
         print(f"Ocorreu o erro {error}")

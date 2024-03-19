@@ -1,2 +1,0 @@
-INFO:2024-03-18 15:34:55,352:O arquivo Socios0.zip demorou 215.8238389492035 segundos para ser baixado.
-INFO:2024-03-18 15:37:46,449:O arquivo Empresas0.zip demorou 386.92049956321716 segundos para ser baixado.

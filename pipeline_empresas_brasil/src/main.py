@@ -3,6 +3,7 @@ import os
 from functools import partial
 
 import bronze
+import camadas
 import database
 import gold
 import silver
@@ -40,37 +41,38 @@ EMPRESA_METADATA = {
 }
 
 SOCIOS_METADATA = {
-   "arquivo": "Socios0.zip",
-   "colunas": [
-       "cnpj",
-       "tipo_socio",
-       "nome_socio",
-       "documento_socio",
-       "codigo_qualificacao_socio",
-       "data_entrada",
-       "pais",
-       "representante_legal",
-       "nome_representante",
-       "qualificacao_representante",
-       "faixa_etaria",
-   ],
-   "dtype": {
-       "cnpj": "string",
-       "tipo_socio": "int64",
-       "nome_socio": "string",
-       "documento_socio": "string",
-       "codigo_qualificacao_socio": "string",
-       "data_entrada": "string",
-       "pais": "string",
-       "representante_legal": "string",
-       "nome_representante": "string",
-       "qualificacao_representante": "string",
-       "faixa_etaria": "string",
-   },
-   "encoding": "ISO-8859-1",
-   "sep": ";",
+    "arquivo": "Socios0.zip",
+    "colunas": [
+        "cnpj",
+        "tipo_socio",
+        "nome_socio",
+        "documento_socio",
+        "codigo_qualificacao_socio",
+        "data_entrada",
+        "pais",
+        "representante_legal",
+        "nome_representante",
+        "qualificacao_representante",
+        "faixa_etaria",
+    ],
+    "dtype": {
+        "cnpj": "string",
+        "tipo_socio": "int64",
+        "nome_socio": "string",
+        "documento_socio": "string",
+        "codigo_qualificacao_socio": "string",
+        "data_entrada": "string",
+        "pais": "string",
+        "representante_legal": "string",
+        "nome_representante": "string",
+        "qualificacao_representante": "string",
+        "faixa_etaria": "string",
+    },
+    "encoding": "ISO-8859-1",
+    "sep": ";",
 }
 METADATAS = [EMPRESA_METADATA, SOCIOS_METADATA]
+camadas.cria_camadas()
 downlod_multi_files = partial(bronze.downlod_file, url=URL, output=INGESTION)
 unzipall_files = partial(bronze.unzip_file, path=INGESTION, output=INGESTION)
 all_csv_to_parquet = partial(bronze.csv_to_parquet, path=BRONZE, output=BRONZE)
@@ -78,30 +80,29 @@ files = [METADATAS[0]["arquivo"], METADATAS[1]["arquivo"]]
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as thread_executor:
     downalod_files = thread_executor.map(downlod_multi_files, files)
 for file in files:
-   unzipall_files(file)
+    unzipall_files(file)
 bronze.ingestion_to_csv(
-   input_path=INGESTION,
-   output_path=BRONZE,
-   metadata=EMPRESA_METADATA,
-   end_file="EMPRECSV",
+    input_path=INGESTION,
+    output_path=BRONZE,
+    metadata=EMPRESA_METADATA,
+    end_file="EMPRECSV",
 )
 bronze.ingestion_to_csv(
-   input_path=INGESTION,
-   output_path=BRONZE,
-   metadata=SOCIOS_METADATA,
-   end_file="SOCIOCSV",
+    input_path=INGESTION,
+    output_path=BRONZE,
+    metadata=SOCIOS_METADATA,
+    end_file="SOCIOCSV",
 )
 files = list(filter(lambda files: files.endswith(".csv") == True, os.listdir(BRONZE)))
 with concurrent.futures.ProcessPoolExecutor(max_workers=4) as process_executor:
-   parquet_files = process_executor.map(all_csv_to_parquet, files)
+    parquet_files = process_executor.map(all_csv_to_parquet, files)
 bronze.remove_all_files(INGESTION, "CSV")
 bronze.remove_all_files(BRONZE, ".csv")
 silver.social_bronze_to_silver("SOCIO.parquet", BRONZE, SOCIOS_SILVER)
 silver.empresas_bronze_to_silver("EMPRE.parquet", BRONZE, EMPRESA_SILVER)
 gold.silver_to_gold(
-   SOCIOS_SILVER + "SOCIO.parquet",
-   EMPRESA_SILVER + "EMPRE.parquet",
-   EMPRESA_GOLD + "EMPRESA.parquet",
+    SOCIOS_SILVER + "SOCIO.parquet",
+    EMPRESA_SILVER + "EMPRE.parquet",
+    EMPRESA_GOLD + "EMPRESA.parquet",
 )
-
 database.gold_to_bd(parquet_path="camadas/gold/empresa/EMPRESA.parquet")
